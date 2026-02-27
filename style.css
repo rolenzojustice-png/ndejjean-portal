@@ -1,0 +1,93 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+body { height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+
+/* Video Background */
+.video-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+#player { width: 100vw; height: 56.25vw; transform: scale(1.5); }
+.overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+           background: rgba(10, 25, 47, 0.7); } /* Navy blue tint */
+
+/* Glass Portal Container */
+.portal-container {
+    background: rgba(10, 25, 47, 0.85);
+    backdrop-filter: blur(10px);
+    border: 2px solid #ffcc00;
+    border-radius: 20px;
+    padding: 40px;
+    width: 400px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    transition: 0.5s ease-in-out;
+}
+
+h2 { color: #ffcc00; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 2px; }
+
+input {
+    width: 100%; padding: 12px; margin-bottom: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 204, 0, 0.3);
+    border-radius: 8px; color: white; outline: none;
+    transition: 0.3s;
+}
+
+input:focus { border-color: #ffcc00; box-shadow: 0 0 10px #ffcc00; }
+
+.main-btn {
+    width: 100%; padding: 12px; background: #ffcc00;
+    color: #0a192f; border: none; border-radius: 8px;
+    font-weight: bold; cursor: pointer; transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.main-btn:hover { background: #ffd700; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(255,204,0,0.4); }
+
+.toggle-text { margin-top: 15px; font-size: 0.85rem; color: #ccc; }
+.toggle-text span { color: #ffcc00; cursor: pointer; font-weight: bold; text-decoration: underline; }
+
+/* Animation Classes */
+.hidden { display: none; }
+.fade-in-up { animation: fadeInUp 0.5s forwards; }
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* Checkmark Animation Styles */
+.checkmark-wrapper {
+    width: 80px; height: 80px;
+    position: relative; margin: 0 auto 20px;
+}
+
+.checkmark-circle {
+    width: 80px; height: 80px;
+    border: 4px solid #ffcc00;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.checkmark-stem {
+    position: absolute; width: 4px; height: 35px;
+    background-color: #ffcc00;
+    left: 45px; top: 18px;
+    transform: rotate(45deg);
+    animation: drawStem 0.3s ease-in-out forwards;
+}
+
+.checkmark-kick {
+    position: absolute; width: 20px; height: 4px;
+    background-color: #ffcc00;
+    left: 28px; top: 45px;
+    transform: rotate(45deg);
+    animation: drawKick 0.3s ease-in-out forwards;
+}
+
+@keyframes drawStem { from { height: 0; } to { height: 35px; } }
+@keyframes drawKick { from { width: 0; } to { width: 20px; } }
+
+/* Button Success State Pulse */
+.success-glow {
+    box-shadow: 0 0 30px rgba(255, 204, 0, 0.8);
+    transition: 0.5s;
+}
